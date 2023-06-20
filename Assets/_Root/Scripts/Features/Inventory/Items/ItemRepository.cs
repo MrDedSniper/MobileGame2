@@ -3,20 +3,28 @@ using System.Collections.Generic;
 
 namespace Features.Inventory.Items
 {
-    internal interface IItemRepository
+    internal interface IItemsRepository : IRepository
     {
-        IReadOnlyDictionary<String, IItem> Items { get; }
+        IReadOnlyDictionary<string, IItem> Items { get; }
     }
-    
-    internal class ItemRepository : BaseRepository<string, IItem, ItemConfig>
-    {
-        public ItemRepository(IEnumerable<ItemConfig> configs) : base(configs)
-        {
-        }
 
-        protected override string GetKey(ItemConfig config) => config.Id;
+    internal class ItemsRepository : BaseRepository<string, IItem, ItemConfig>, IItemsRepository
+    {
+        public ItemsRepository(IEnumerable<ItemConfig> configs) : base(configs)
+        { }
+
+        protected override string GetKey(ItemConfig config) =>
+            config.Id;
 
         protected override IItem CreateItem(ItemConfig config) =>
-            new Item(config.Id, new ItemInfo(config.Title, config.Icon));
+            new Item
+            (
+                config.Id,
+                new ItemInfo
+                (
+                    config.Title,
+                    config.Icon
+                )
+            );
     }
 }

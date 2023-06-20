@@ -7,25 +7,29 @@ using Object = UnityEngine.Object;
 
 namespace Features.Inventory
 {
-    internal class InventoryController : BaseController
+    internal interface IInventoryController
+    {
+    }
+
+    internal class InventoryController : BaseController, IInventoryController
     {
         private readonly ResourcePath _viewPath = new ResourcePath("Prefabs/Inventory/InventoryView");
-        private readonly ResourcePath _dataSourcePath = new ResourcePath("");
+        private readonly ResourcePath _dataSourcePath = new ResourcePath("Configs/Inventory/ItemConfigDataSource");
 
         private readonly InventoryView _view;
         private readonly IInventoryModel _model;
-        private readonly ItemRepository _repository;
+        private readonly ItemsRepository _repository;
+
 
         public InventoryController(
-            [NotNull] Transform placeForUi, 
+            [NotNull] Transform placeForUi,
             [NotNull] IInventoryModel inventoryModel)
         {
             if (placeForUi == null)
-            {
-                throw new ArgumentException(nameof(placeForUi));
-            }
-            
-            _model = inventoryModel ?? throw new ArgumentException(nameof(inventoryModel));
+                throw new ArgumentNullException(nameof(placeForUi));
+
+            _model
+                = inventoryModel ?? throw new ArgumentNullException(nameof(inventoryModel));
 
             _repository = CreateRepository();
             _view = LoadView(placeForUi);
@@ -33,14 +37,14 @@ namespace Features.Inventory
             _view.Display(_repository.Items.Values, OnItemClicked);
 
             foreach (string itemId in _model.EquippedItems)
-            {
                 _view.Select(itemId);
-            }
         }
-        private ItemRepository CreateRepository()
+
+
+        private ItemsRepository CreateRepository()
         {
             ItemConfig[] itemConfigs = ContentDataSourceLoader.LoadItemConfigs(_dataSourcePath);
-            var repository = new ItemRepository(itemConfigs);
+            var repository = new ItemsRepository(itemConfigs);
             AddRepository(repository);
 
             return repository;
@@ -54,16 +58,16 @@ namespace Features.Inventory
 
             return objectView.GetComponent<InventoryView>();
         }
-        
+
+
         private void OnItemClicked(string itemId)
         {
-            bool isEquipped = _model.IsEquipped(itemId);
-            
-            if (isEquipped) UnequipItem(itemId);
+            bool equipped = _model.IsEquipped(itemId);
+
+            if (equipped)
+                UnequipItem(itemId);
             else
-            {
-                EquipItem(itemId);           
-            }
+                EquipItem(itemId);
         }
 
         private void EquipItem(string itemId)

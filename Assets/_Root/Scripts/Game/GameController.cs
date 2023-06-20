@@ -16,24 +16,25 @@ namespace Game
         private readonly SubscriptionProperty<float> _rightMoveDiff;
         
         private readonly CarController _carController;
+        private readonly InputGameController _inputGameController;
         private readonly AbilitiesController _abilitiesController;
         private readonly TapeBackgroundController _tapeBackgroundController;
         
         public GameController(Transform placeForUi, ProfilePlayer profilePlayer)
         {
-            var leftMoveDiff = new SubscriptionProperty<float>();
-            var rightMoveDiff = new SubscriptionProperty<float>();
-            
+            _leftMoveDiff = new SubscriptionProperty<float>();
+            _rightMoveDiff = new SubscriptionProperty<float>();
+
             _carController = CreateCarController();
-            _abilitiesController = CreateAbilitiesController(placeForUi, _carController);
+            _inputGameController = CreateInputGameController(profilePlayer, _leftMoveDiff, _rightMoveDiff);
             _tapeBackgroundController = CreateTapeBackground(_leftMoveDiff, _rightMoveDiff);
-            
+
             ServiceRoster.Analytics.SendGameStarted();
 
-            var tapeBackgroundController = new TapeBackgroundController(leftMoveDiff, rightMoveDiff);
+            var tapeBackgroundController = new TapeBackgroundController(_leftMoveDiff, _rightMoveDiff);
             AddController(tapeBackgroundController);
 
-            var inputGameController = new InputGameController(leftMoveDiff, rightMoveDiff, profilePlayer.CurrentCar);
+            var inputGameController = new InputGameController(_leftMoveDiff, _rightMoveDiff, profilePlayer.CurrentCar);
             AddController(inputGameController);
 
             var carController = new CarController();
@@ -61,5 +62,15 @@ namespace Game
 
             return abilitiesController;
         }
+        
+        private InputGameController CreateInputGameController(ProfilePlayer profilePlayer,
+            SubscriptionProperty<float> leftMoveDiff, SubscriptionProperty<float> rightMoveDiff)
+        {
+            var inputGameController = new InputGameController(leftMoveDiff, rightMoveDiff, profilePlayer.CurrentCar);
+            AddController(inputGameController);
+
+            return inputGameController;
+        }
+
     }
 }

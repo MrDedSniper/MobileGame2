@@ -6,8 +6,7 @@ namespace Game.InputLogic
 {
     internal class InputGameController : BaseController
     {
-        //private readonly ResourcePath _resourcePath = new ResourcePath("Prefabs/EndlessMove");
-        private readonly ResourcePath _resourcePath = new ResourcePath("Prefabs/KeyboardMove");
+        private readonly ResourcePath _resourcePath = new ResourcePath("Prefabs/Input/KeyboardMove");
         private BaseInputView _view;
 
 
@@ -26,8 +25,7 @@ namespace Game.InputLogic
             GameObject objectView = Object.Instantiate(prefab);
             AddGameObject(objectView);
 
-            BaseInputView view = objectView.GetComponent<BaseInputView>();
-            return view;
+            return objectView.GetComponent<BaseInputView>();
         }
     }
 }

@@ -2,30 +2,33 @@
 
 namespace Features.Inventory
 {
-    public interface IInventoryModel
+    internal interface IInventoryModel
     {
         IReadOnlyList<string> EquippedItems { get; }
-        void EquipItem(string itemId);
+        void EquipItem(string item);
         void UnequipItem(string itemId);
         bool IsEquipped(string itemId);
     }
-    
-    
-    public class InventoryModel : IInventoryModel
+
+    internal class InventoryModel : IInventoryModel
     {
-        private readonly List<string> _equippedItems = new();
+        private readonly List<string> _equippedItems = new List<string>();
         public IReadOnlyList<string> EquippedItems => _equippedItems;
-        
+
+
         public void EquipItem(string itemId)
         {
-            if (!IsEquipped(itemId)) _equippedItems.Add(itemId);
+            if (!IsEquipped(itemId))
+                _equippedItems.Add(itemId);
         }
 
         public void UnequipItem(string itemId)
         {
-            if (!IsEquipped(itemId)) _equippedItems.Remove(itemId);
+            if (IsEquipped(itemId))
+                _equippedItems.Remove(itemId);
         }
 
-        public bool IsEquipped(string itemId) => _equippedItems.Contains(itemId);
+        public bool IsEquipped(string itemId) =>
+            _equippedItems.Contains(itemId);
     }
 }

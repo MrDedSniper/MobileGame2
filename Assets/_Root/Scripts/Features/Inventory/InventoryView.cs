@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Features.Inventory
 {
-    public interface IInventoryView
+    internal interface IInventoryView
     {
         void Display(IEnumerable<IItem> itemsCollection, Action<string> itemClicked);
         void Clear();
@@ -13,7 +13,7 @@ namespace Features.Inventory
         void Unselect(string id);
     }
 
-    public class InventoryView : MonoBehaviour, IInventoryView
+    internal class InventoryView : MonoBehaviour, IInventoryView
     {
         [SerializeField] private GameObject _itemViewPrefab;
         [SerializeField] private Transform _placeForItems;
@@ -53,6 +53,5 @@ namespace Features.Inventory
             itemView.Deinit();
             Destroy(itemView.gameObject);
         }
-        
     }
 }

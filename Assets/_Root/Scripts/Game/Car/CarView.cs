@@ -1,9 +1,9 @@
-using UnityEngine;
+using Game.InputLogic;
 
 namespace Game.Car
 {
-    internal class CarView : MonoBehaviour
+    internal class CarView : BaseInputView
     {
-
+        
     }
 }

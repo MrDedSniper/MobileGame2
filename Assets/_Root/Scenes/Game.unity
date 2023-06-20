@@ -353,7 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _analyticsManager: {fileID: 1719795020}
   _adsSettings: {fileID: 381237657}
-  _iapService: {fileID: 0}
+  _iapService: {fileID: 1406661294}
 --- !u!1 &1165112438
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedCar: 15
-  _jumpHeightCar: 5
+  _jumpHeightCar: 2
   InitialState: 1
   _placeForUi: {fileID: 1903552}
   _analyticsManager: {fileID: 1719795020}

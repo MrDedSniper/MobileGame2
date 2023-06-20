@@ -6,9 +6,12 @@ using UnityEngine.UI;
 
 namespace Features.Inventory.Items
 {
-   //internal interface 
-    
-    public class ItemView : MonoBehaviour
+    internal interface IItemView
+    {
+        void Init(IItem item, UnityAction clickAction);
+    }
+
+    internal class ItemView : MonoBehaviour, IItemView
     {
         [SerializeField] private Image _icon;
         [SerializeField] private TMP_Text _text;
@@ -17,10 +20,9 @@ namespace Features.Inventory.Items
         [SerializeField] private GameObject _selectedBackground;
         [SerializeField] private GameObject _unselectedBackground;
 
-        private void OnDestroy()
-        {
-            Deinit();
-        }
+
+        private void OnDestroy() => Deinit();
+
 
         public void Init(IItem item, UnityAction clickAction)
         {
@@ -36,15 +38,9 @@ namespace Features.Inventory.Items
             _button.onClick.RemoveAllListeners();
         }
 
-        public void Select()
-        {
-            SetSelected(true);
-        }
-        
-        public void Unselect()
-        {
-            SetSelected(false);
-        }
+
+        public void Select() => SetSelected(true);
+        public void Unselect() => SetSelected(false);
 
         private void SetSelected(bool isSelected)
         {

@@ -11,8 +11,9 @@ internal class MainController : BaseController
 
     private MainMenuController _mainMenuController;
     private SettingsMenuController _settingsMenuController;
-    private GameController _gameController;
     private ShedController _shedController;
+    private GameController _gameController;
+    
     public MainController(Transform placeForUi, ProfilePlayer profilePlayer)
     {
         _placeForUi = placeForUi;

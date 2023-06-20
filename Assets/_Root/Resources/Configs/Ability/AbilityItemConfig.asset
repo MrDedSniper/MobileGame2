@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7c0900b45e46d4bd60c41ef3e0893a, type: 3}
   m_Name: AbilityItemConfig
   m_EditorClassIdentifier: 
-  _itemConfig: {fileID: 11400000, guid: b597b6b04f8d34d0bb36337f81f45ec0, type: 2}
+  _itemConfig: {fileID: 11400000, guid: 5e79e9ed6b638c94ab8f15ea4c54284d, type: 2}
   <Type>k__BackingField: 1
   <Projectile>k__BackingField: {fileID: 4053592497838757858, guid: 44eb27282cac35e4bbc56d3fd9cc795e, type: 3}
   <Value>k__BackingField: 500

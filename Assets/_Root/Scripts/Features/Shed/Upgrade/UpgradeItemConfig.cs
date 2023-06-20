@@ -3,8 +3,7 @@ using UnityEngine;
 
 namespace Features.Shed.Upgrade
 {
-    [CreateAssetMenu(fileName = nameof(UpgradeItemConfig), menuName = "Configs/" + nameof(UpgradeItemConfig))] 
-    
+    [CreateAssetMenu(fileName = nameof(UpgradeItemConfig), menuName = "Configs/" + nameof(UpgradeItemConfig))]
     internal class UpgradeItemConfig : ScriptableObject
     {
         [SerializeField] private ItemConfig _itemConfig;

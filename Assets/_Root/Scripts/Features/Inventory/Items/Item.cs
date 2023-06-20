@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Features.Inventory.Items
 {
-    public interface IItem
+    internal interface IItem
     {
         string Id { get; }
         ItemInfo Info { get; }
@@ -21,11 +21,11 @@ namespace Features.Inventory.Items
         }
     }
 
-    public readonly struct ItemInfo
+    internal readonly struct ItemInfo
     {
         public string Title { get; }
         public Sprite Icon { get; }
-        
+
         public ItemInfo(string title, Sprite icon)
         {
             Title = title;

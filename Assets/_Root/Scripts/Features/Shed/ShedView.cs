@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -10,6 +9,7 @@ namespace Features.Shed
         void Init(UnityAction apply, UnityAction back);
         void Deinit();
     }
+
     internal class ShedView : MonoBehaviour, IShedView
     {
         [SerializeField] private Button _buttonApply;
@@ -22,6 +22,7 @@ namespace Features.Shed
             _buttonApply.onClick.AddListener(apply);
             _buttonBack.onClick.AddListener(back);
         }
+
         public void Deinit()
         {
             _buttonApply.onClick.RemoveAllListeners();
