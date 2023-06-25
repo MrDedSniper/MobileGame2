@@ -48,8 +48,10 @@
      <Compile Include="Assets\_Root\Scripts\Tool\ResourceManagement\ContentDataSourceLoader.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\Inventory\InventoryView.cs" />
      <Compile Include="Assets\_Root\Scripts\Ui\MainMenu\MainMenuView.cs" />
+     <Compile Include="Assets\_Root\Scripts\Profile\InitialProfilePlayer.cs" />
      <Compile Include="Assets\UpdateManager\Example Scene\Scripts\ExampleEventUpdate.cs" />
      <Compile Include="Assets\_Root\Scripts\Services\Ads\IAdsPlayer.cs" />
+     <Compile Include="Assets\_Root\Scripts\BaseContext.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\Shed\Upgrade\IUpgradeHandler.cs" />
      <Compile Include="Assets\_Root\Scripts\Ui\SettingsMenu\SettingsMenuController.cs" />
      <Compile Include="Assets\_Root\Scripts\Game\TapeBackground\TapeBackgroundController.cs" />
@@ -101,7 +103,9 @@
      <Compile Include="Assets\_Root\Scripts\Features\Inventory\Items\ItemRepository.cs" />
      <Compile Include="Assets\_Root\Scripts\Services\Ads\UnityAds\RewardedAdsPlayer.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\Shed\Upgrade\JumpHeightUpgradeHandler.cs" />
+     <Compile Include="Assets\_Root\Scripts\ParentObject.cs" />
      <Compile Include="Assets\UpdateManager\Example Scene\Scripts\ExampleUpdateManagerUpdate.cs" />
+     <Compile Include="Assets\_Root\Scripts\Features\AbilitySystem\AbilitiesContext.cs" />
      <Compile Include="Assets\_Root\Scripts\Ui\SettingsMenu\SettingsMenuView.cs" />
      <Compile Include="Assets\_Root\Scripts\Game\InputLogic\InputGameController.cs" />
      <Compile Include="Assets\_Root\Scripts\Services\Analytics\UnityAnalytics\UnityAnalyticsService.cs" />
@@ -123,9 +127,11 @@
      <Compile Include="Assets\_Root\Scripts\Features\AbilitySystem\Abilities\AbilityItemConfig.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\Shed\Upgrade\UpgradeHandlerRepository.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\AbilitySystem\Abilities\IAbility.cs" />
+     <Compile Include="Assets\_Root\Scripts\Features\Inventory\InventoryContext.cs" />
      <Compile Include="Assets\_Root\Scripts\Game\InputLogic\InputJoystickView.cs" />
      <Compile Include="Assets\_Root\Scripts\EntryPoint.cs" />
      <Compile Include="Assets\_Root\Scripts\Game\Car\CarController.cs" />
+     <Compile Include="Assets\_Root\Scripts\Features\Shed\ShedContext.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\Shed\Upgrade\StubUpgradeHandler.cs" />
      <Compile Include="Assets\_Root\Scripts\Profile\GameState.cs" />
      <Compile Include="Assets\_Root\Scripts\Services\IAP\Settings\Product.cs" />

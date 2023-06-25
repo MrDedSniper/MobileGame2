@@ -4,24 +4,26 @@ using UnityEngine;
 
 internal class EntryPoint : MonoBehaviour
 {
-    [SerializeField] private float _speedCar;
-    [SerializeField] private float _jumpHeightCar;
-    [SerializeField] private  GameState InitialState;
+    [SerializeField] private InitialProfilePlayer _initialProfilePlayer;
 
     [SerializeField] private Transform _placeForUi;
+    
     private MainController _mainController;
     
     [SerializeField] private AnalyticsManager _analyticsManager;
     private void Start()
     {
-        var profilePlayer = new ProfilePlayer(_speedCar, _jumpHeightCar, InitialState);
+        var profilePlayer = CreateProfilePlayer(_initialProfilePlayer);
         _mainController = new MainController(_placeForUi, profilePlayer);
         
         _analyticsManager.SendMainMenuOpenedEvent();
     }
-
+    
     private void OnDestroy()
     {
         _mainController.Dispose();
     }
+    private ProfilePlayer CreateProfilePlayer(InitialProfilePlayer initialProfilePlayer) =>
+        new ProfilePlayer(initialProfilePlayer.Car.Speed, initialProfilePlayer.Car.JumpHeight, initialProfilePlayer.State);
+
 }

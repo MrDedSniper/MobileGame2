@@ -19,12 +19,6 @@ namespace Game.InputLogic
         private bool _usingJoystick;
 
 
-        private void Start() =>
-            UpdateManager.SubscribeToUpdate(Move);
-
-        private void OnDestroy() =>
-            UpdateManager.UnsubscribeFromUpdate(Move);
-
 
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -58,7 +52,7 @@ namespace Game.InputLogic
         private void SetActive(bool active) =>
             _container.alpha = active ? _enabledAlpha : _disabledAlpha;
 
-        private void Move()
+        protected override void Move()
         {
             if (!_usingJoystick)
                 return;

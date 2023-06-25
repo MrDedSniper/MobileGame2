@@ -1,3 +1,4 @@
+using JoostenProductions;
 using Tool;
 using UnityEngine;
 
@@ -5,9 +6,17 @@ namespace Game.InputLogic
 {
     internal abstract class BaseInputView : MonoBehaviour
     {
+        protected float Speed;
+
         private SubscriptionProperty<float> _leftMove;
         private SubscriptionProperty<float> _rightMove;
-        protected float Speed;
+
+
+        private void Start() =>
+            UpdateManager.SubscribeToUpdate(Move);
+
+        private void OnDestroy() =>
+            UpdateManager.UnsubscribeFromUpdate(Move);
 
 
         public virtual void Init(
@@ -20,10 +29,13 @@ namespace Game.InputLogic
             Speed = speed;
         }
 
-        protected virtual void OnLeftMove(float value) =>
+
+        protected abstract void Move();
+
+        protected void OnLeftMove(float value) =>
             _leftMove.Value = value;
 
-        protected virtual void OnRightMove(float value) =>
+        protected void OnRightMove(float value) =>
             _rightMove.Value = value;
     }
 }

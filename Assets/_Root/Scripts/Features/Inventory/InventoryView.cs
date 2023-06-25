@@ -18,36 +18,50 @@ namespace Features.Inventory
         [SerializeField] private GameObject _itemViewPrefab;
         [SerializeField] private Transform _placeForItems;
 
-        private readonly Dictionary<string, ItemView> _itemViews = new();
+        private readonly Dictionary<string, ItemView> _itemViews = new Dictionary<string, ItemView>();
+
+
+        private void OnDestroy() => Clear();
+
 
         public void Display(IEnumerable<IItem> itemsCollection, Action<string> itemClicked)
         {
             Clear();
-            
-            foreach (IItem item in itemsCollection) 
+
+            foreach (IItem item in itemsCollection)
                 _itemViews[item.Id] = CreateItemView(item, itemClicked);
         }
+
         public void Clear()
         {
-            foreach (ItemView item in _itemViews.Values) 
-                DestroyItemView(item);
-            
+            foreach (ItemView itemView in _itemViews.Values)
+                DestroyItemView(itemView);
+
             _itemViews.Clear();
         }
 
-        public void Select(string id) => _itemViews[id].Select();
 
-        public void Unselect(string id) => _itemViews[id].Unselect();
-        
+        public void Select(string id) =>
+            _itemViews[id].Select();
+
+        public void Unselect(string id) =>
+            _itemViews[id].Unselect();
+
+
         private ItemView CreateItemView(IItem item, Action<string> itemClicked)
         {
-            GameObject objectView = Instantiate(_itemViewPrefab, _placeForItems);
+            GameObject objectView = Instantiate(_itemViewPrefab, _placeForItems, false);
             ItemView itemView = objectView.GetComponent<ItemView>();
-            
-            itemView.Init(item,() => itemClicked?.Invoke(item.Id));
+
+            itemView.Init
+            (
+                item,
+                () => itemClicked?.Invoke(item.Id)
+            );
+
             return itemView;
         }
-        
+
         private void DestroyItemView(ItemView itemView)
         {
             itemView.Deinit();

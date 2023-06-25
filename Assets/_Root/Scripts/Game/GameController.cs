@@ -5,6 +5,7 @@ using Game.TapeBackground;
 using Profile;
 using Tool;
 using Features.AbilitySystem;
+using Features.AbilitySystem.Abilities;
 using Tool.Analytics;
 using UnityEngine;
 
@@ -12,6 +13,9 @@ namespace Game
 {
     internal class GameController : BaseController
     {
+        private readonly ResourcePath _viewPath = new ResourcePath("Prefabs/Ability/AbilitiesView");
+        private readonly ResourcePath _dataSourcePath = new ResourcePath("Configs/Ability/AbilityItemConfigDataSource");
+        
         private readonly SubscriptionProperty<float> _leftMoveDiff;
         private readonly SubscriptionProperty<float> _rightMoveDiff;
         
@@ -57,10 +61,34 @@ namespace Game
 
         private AbilitiesController CreateAbilitiesController(Transform placeForUi, IAbilityActivator abilityActivator)
         {
-            var abilitiesController = new AbilitiesController(placeForUi, abilityActivator);
+            AbilityItemConfig[] abilityItemConfigs = LoadAbilityItemConfigs();
+            AbilitiesRepository repository = CreateRepository(abilityItemConfigs);
+            AbilitiesView view = LoadView(placeForUi);
+            
+            AbilitiesController abilitiesController = new (view, repository, abilityItemConfigs, abilityActivator);
             AddController(abilitiesController);
 
             return abilitiesController;
+        }
+        
+        private AbilityItemConfig[] LoadAbilityItemConfigs() =>
+            ContentDataSourceLoader.LoadAbilityItemConfigs(_dataSourcePath);
+
+        private AbilitiesRepository CreateRepository(AbilityItemConfig[] abilityItemConfigs)
+        {
+            var repository = new AbilitiesRepository(abilityItemConfigs);
+            AddRepository(repository);
+
+            return repository;
+        }
+
+        private AbilitiesView LoadView(Transform placeForUi)
+        {
+            GameObject prefab = ResourcesLoader.LoadPrefab(_viewPath);
+            GameObject objectView = UnityEngine.Object.Instantiate(prefab, placeForUi, false);
+            AddGameObject(objectView);
+
+            return objectView.GetComponent<AbilitiesView>();
         }
         
         private InputGameController CreateInputGameController(ProfilePlayer profilePlayer,
