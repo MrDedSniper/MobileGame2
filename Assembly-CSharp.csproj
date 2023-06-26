@@ -76,6 +76,7 @@
      <Compile Include="Assets\_Root\Scripts\Features\Inventory\Items\ItemConfigDataSource.cs" />
      <Compile Include="Assets\UpdateManager\Example Scene\Scripts\Counter.cs" />
      <Compile Include="Assets\_Root\Scripts\Game\InputLogic\BaseInputView.cs" />
+     <Compile Include="Assets\_Battle\Scripts\PlayerData.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\AbilitySystem\AbilitiesController.cs" />
      <Compile Include="Assets\_Root\Scripts\MainController.cs" />
      <Compile Include="Assets\_Root\Scripts\Services\Ads\UnityAds\StubPlayer.cs" />
@@ -105,6 +106,7 @@
      <Compile Include="Assets\_Root\Scripts\Features\Shed\Upgrade\JumpHeightUpgradeHandler.cs" />
      <Compile Include="Assets\_Root\Scripts\ParentObject.cs" />
      <Compile Include="Assets\UpdateManager\Example Scene\Scripts\ExampleUpdateManagerUpdate.cs" />
+     <Compile Include="Assets\_Battle\Scripts\MainWindowMediator.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\AbilitySystem\AbilitiesContext.cs" />
      <Compile Include="Assets\_Root\Scripts\Ui\SettingsMenu\SettingsMenuView.cs" />
      <Compile Include="Assets\_Root\Scripts\Game\InputLogic\InputGameController.cs" />
@@ -118,6 +120,7 @@
      <Compile Include="Assets\_Root\Scripts\Services\IAP\IAPService.cs" />
      <Compile Include="Assets\_Root\Scripts\BaseController.cs" />
      <Compile Include="Assets\_Root\Scripts\Game\Car\CarView.cs" />
+     <Compile Include="Assets\_Battle\Scripts\DataType.cs" />
      <Compile Include="Assets\_Root\Scripts\Game\InputLogic\FloatInputJoystick.cs" />
      <Compile Include="Assets\_Root\Scripts\Services\IAP\IIAPService.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\AbilitySystem\AbilitiesView.cs" />
@@ -127,6 +130,7 @@
      <Compile Include="Assets\_Root\Scripts\Features\AbilitySystem\Abilities\AbilityItemConfig.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\Shed\Upgrade\UpgradeHandlerRepository.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\AbilitySystem\Abilities\IAbility.cs" />
+     <Compile Include="Assets\_Battle\Scripts\Enemy.cs" />
      <Compile Include="Assets\_Root\Scripts\Features\Inventory\InventoryContext.cs" />
      <Compile Include="Assets\_Root\Scripts\Game\InputLogic\InputJoystickView.cs" />
      <Compile Include="Assets\_Root\Scripts\EntryPoint.cs" />
@@ -135,6 +139,7 @@
      <Compile Include="Assets\_Root\Scripts\Features\Shed\Upgrade\StubUpgradeHandler.cs" />
      <Compile Include="Assets\_Root\Scripts\Profile\GameState.cs" />
      <Compile Include="Assets\_Root\Scripts\Services\IAP\Settings\Product.cs" />
+     <Compile Include="Assets\_Battle\Scripts\WantedLevel.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\_Root\Settings\IAP" />
      <Folder Include="Assets\_Root\Scripts\Services\Ads\UnityAds\Settings" />
@@ -152,6 +157,7 @@
      <None Include="Assets\UpdateManager\READ ME.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\Resources\IAPProductCatalog.json" />
+     <Folder Include="Assets\_Battle\Scenes" />
      <Folder Include="Assets\Scenes" />
      <Folder Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials" />
      <Folder Include="Assets\UpdateManager" />
@@ -193,6 +199,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <Folder Include="Assets\TextMesh Pro\Shaders" />
      <Folder Include="Assets\_Root\Scripts\Services\Ads" />
+     <Folder Include="Assets\_Battle" />
      <Folder Include="Assets\TextMesh Pro\Resources\Style Sheets" />
      <Folder Include="Assets\TextMesh Pro\Fonts" />
      <Folder Include="Assets\_Root\Scripts\Features\Shed" />
@@ -218,6 +225,7 @@
      <Folder Include="Assets\TextMesh Pro\Documentation" />
      <Folder Include="Assets\_Root\Scripts\Features\Shed\Upgrade" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <Folder Include="Assets\_Battle\Scripts" />
      <Folder Include="Assets\_Root\Scripts\Tool\ResourceManagement" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
      <Folder Include="Assets\_Root\Scripts\Ui\SettingsMenu" />
