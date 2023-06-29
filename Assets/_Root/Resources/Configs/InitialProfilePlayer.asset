@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11a3b11a41564a14b1be3ec1f4f73ea9, type: 3}
   m_Name: InitialProfilePlayer
   m_EditorClassIdentifier: 
-  <State>k__BackingField: 0
+  <State>k__BackingField: 1
   <Car>k__BackingField:
-    <Speed>k__BackingField: 0
-    <JumpHeight>k__BackingField: 0
+    <Speed>k__BackingField: 15
+    <JumpHeight>k__BackingField: 2
