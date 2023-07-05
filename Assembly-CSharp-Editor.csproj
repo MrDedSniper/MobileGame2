@@ -42,9 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\UpdateManager\Example Scene\Scripts\Editor\ClonerEditor.cs" />
-     <Compile Include="Assets\_Tween\Scripts\Editor\CustomButtonEditor.cs" />
+     <Compile Include="Assets\_Root\Scripts\Tool\Tween\Editor\CustomButtonEditor.cs" />
      <Folder Include="Assets\UpdateManager\Example Scene\Scripts\Editor" />
-     <Folder Include="Assets\_Tween\Scripts\Editor" />
+     <Folder Include="Assets\_Root\Scripts\Tool\Tween\Editor" />
      <Reference Include="UnityEngine">
      <HintPath>D:\Program Files\Unity\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>

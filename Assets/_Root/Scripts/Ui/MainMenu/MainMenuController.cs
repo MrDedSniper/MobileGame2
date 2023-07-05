@@ -2,6 +2,7 @@ using System;
 using Services;
 using Profile;
 using Tool;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using Object = UnityEngine.Object;
@@ -18,12 +19,16 @@ namespace Ui
         {
             _profilePlayer = profilePlayer;
             _view = LoadView(placeForUi);
-            _view.Init(new UnityAction(StartGame),
+            
+            _view.Init(StartGame, OpenSettings, OpenShed, PlayRewardedAds, BuyProduct, OpenDailyReward, ExitGame);
+            
+           /* _view.Init(new UnityAction(StartGame),
                 new UnityAction(OpenSettings), 
                 new UnityAction(OpenShed), 
                 new UnityAction(PlayRewardedAds), 
-                new UnityAction<string>(BuyProduct)
-                );
+                new UnityAction<string>(BuyProduct), 
+                new UnityAction<string>(OpenDailyReward)
+                );*/
 
             SubscribeAds();
             SubscribeIAP();
@@ -54,7 +59,17 @@ namespace Ui
         private void PlayRewardedAds() => ServiceRoster.AdsService.RewardedPlayer.Play();
 
         private void BuyProduct(string productId) => ServiceRoster.IAPService.Buy(productId);
-        
+
+        private void OpenDailyReward() => _profilePlayer.CurrentState.Value = GameState.DailyReward;
+
+        private void ExitGame()
+        {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+            Application.Quit();
+        }
+
         private void SubscribeAds()
         {
             ServiceRoster.AdsService.RewardedPlayer.Finished += OnAdsFinised;
