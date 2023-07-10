@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 4267902174
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7796bb758f458fc3fbb3d0e1245d2bef
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/_Root/Audio/MusicForBundles.mp3
+- Assets/_Root/Audio/click_button.mp3
+Dependencies: []

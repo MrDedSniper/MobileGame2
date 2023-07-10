@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 4051715923
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 30743ef0d7314835c77cea44ab2f9f85
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c21d61fe394c58399df3c6fb5c7c99b3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/_Root/Sprites/PlankSprite.png
+Dependencies: []
