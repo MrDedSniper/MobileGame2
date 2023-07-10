@@ -11,13 +11,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Root/Scenes/Game.unity
     guid: 9777d1fd47edc45d98cb2b1251d702e7
-  - enabled: 1
-    path: Assets/_Battle/Scenes/Battle.unity
-    guid: cb852b5b6ad994376b483f9e3d560e1b
-  - enabled: 1
-    path: Assets/_Rewards/Scenes/Rewards.unity
-    guid: 5a9dd474e7f8946f78c65941e867ba9b
-  - enabled: 1
-    path: Assets/_WeeklyRewards/Scenes/WeeklyRewards.unity
-    guid: 5b43963ce1b878a428e9c768239eb475
-  m_configObjects: {}
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: a79b7e1682bfc40c38eb1a6012f34c22, type: 2}

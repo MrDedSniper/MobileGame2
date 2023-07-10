@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "com.unity.addressables": "1.19.19",
     "com.unity.ads": "4.3.0",
+    "com.unity.assetbundlebrowser": "https://github.com/Unity-Technologies/AssetBundles-Browser.git",
     "com.unity.collab-proxy": "1.17.7",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.16",

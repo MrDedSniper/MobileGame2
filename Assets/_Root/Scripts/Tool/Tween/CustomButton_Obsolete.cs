@@ -32,10 +32,13 @@ namespace Tool.Tween
             InitRectTransform();
         }
 
-        protected override void OnValidate()
+        protected new void OnValidate() =>
+            InitComponents();
+
+        private void InitComponents()
         {
-            base.OnValidate();
-            InitRectTransform();
+            _audioSource ??= GetComponent<AudioSource>();
+            _rectTransform ??= GetComponent<RectTransform>();
         }
 
         private void InitRectTransform()
