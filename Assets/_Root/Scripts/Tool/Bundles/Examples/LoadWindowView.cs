@@ -84,7 +84,7 @@ namespace Tool.Bundles.Examples
         {
             if (!_loadedBackground.IsValid())
             {
-                _loadedBackground = Addressables.LoadAssetsAsync<Sprite>(_background);
+                _loadedBackground = Addressables.LoadAssetAsync<Sprite>(_background);
                 _loadedBackground.Completed += OnBackgroundLoaded;
             }
         }
